@@ -13,19 +13,20 @@
 <body ng-app="myApp">
     <div class="container">
         <h1>Sign up</h1>
-        <form name="frm">
+        <form name="frm" my-controller="myCtrl">
             <div class="row text">
-                <div class="name">Student ID</div>
-                <input type="text" name="id" required ng-model="id" placeholder="Ex: PS24859" />
+                <div class="name">Student ID: </div>
+                <input type="text" name="id" minlength="5" maxlength="10" required ng-model="id"
+                    placeholder="Ex: PS24859" />
                 <div ng-if="frm.id.$invalid" class="error">
-                    You haven't type Student Id
+                    The Student Id cannot be empty
                 </div>
             </div>
             <div class="row text">
-                <div class="name">Name</div>
+                <div class="name">Name: </div>
                 <input type="text" name="ten" required ng-model="ten" placeholder="Ex: Vu Thai Duong" />
                 <div ng-if="frm.ten.$invalid" class="error">
-                    You haven't type Name
+                    The name cannot be empty
                 </div>
             </div>
             <div class="row text">
@@ -46,18 +47,18 @@
             <div class="row">
                 <div class="name">Hobbies</div>
                 <div class="check_box">
-                    <input type="checkbox" name="hobbies" ng-model="hobbies" /> Read books
-                    <input type="checkbox" name="hobbies" ng-model="hobbies" /> Tourism
-                    <input type="checkbox" name="hobbies" ng-model="hobbies" /> Cuisine
-                    <input type="checkbox" name="hobbies" ng-model="hobbies" /> Music
-                    <input type="checkbox" name="hobbies" ng-model="hobbies" /> Other
+                    <input type="checkbox" value="0" ng-model="ds" /> Read books
+                    <input type="checkbox" value="1" ng-model="dl" /> Tourism
+                    <input type="checkbox" value="2" ng-model="at" /> Cuisine
+                    <input type="checkbox" value="3" ng-model="an" /> Music
+                    <input type="checkbox" value="4" ng-model="kh" /> Other
                 </div>
-                <div class="error" ng-if="!hobbies">You haven't selected Hobbies</div>
+                <div class="error" ng-if="!ds && !dl && !at && !an && !kh">You haven't selected Hobbies</div>
             </div>
             <div class="row text">
                 <div class="name">Nationality</div>
                 <select name="nationality" ng-model="nationality">
-                    <option value="Vietnamese" name="">Vietnamese</option>
+                    <option value="Vietnamese">Vietnamese</option>
                     <option value="British">British</option>
                     <option value="Korean">Koreapanese</option>
                     <option value="Canadian">Cann</option>
@@ -72,8 +73,8 @@
             </div>
             <div class="row">
                 <div class="name">Notes</div>
-                <textarea name="notes" ng-model="notes" minlength="10" maxlength="255" required></textarea>
-                <div class="error" ng-if("frm.notes.$invalid")>You haven't type Notes</div>
+                <textarea name="notes" ng-model="notes" minlength="10" maxlength="255"></textarea>
+                <div class="error" ng-if="!notes">You haven't type Notes</div>
             </div>
             <div class="row">
                 <button type="button">Submit</button>

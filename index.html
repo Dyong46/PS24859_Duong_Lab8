@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng kí thành viên</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <div class="container">
+        <h1>Sign up</h1>
+        <form name="frm">
+            <div class="row text">
+                <div class="name">Student ID</div>
+                <input type="text" name="id" required ng-model="id" placeholder="Ex: PS24859" />
+                <div ng-if="frm.id.$invalid" class="error">
+                    You haven't type Student Id
+                </div>
+            </div>
+            <div class="row text">
+                <div class="name">Name</div>
+                <input type="text" name="ten" required ng-model="ten" placeholder="Ex: Vu Thai Duong" />
+                <div ng-if="frm.ten.$invalid" class="error">
+                    You haven't type Name
+                </div>
+            </div>
+            <div class="row text">
+                <div class="name">Email</div>
+                <input type="text" name="email" required ng-model="email" placeholder="Ex: duongvtps24859@fpt.edu.vn" />
+                <div ng-if="frm.email.$invalid" class="error">
+                    You haven't type Email
+                </div>
+            </div>
+            <div class="row">
+                <div class="name">Gender</div>
+                <div class="check_box">
+                    <input type="radio" name="gender" ng-model="gender" value="1" />Male
+                    <input type="radio" name="gender" ng-model="gender" value="2" />Female
+                </div>
+                <p class="error" ng-if="!gender">You haven't selected Gender</p>
+            </div>
+            <div class="row">
+                <div class="name">Hobbies</div>
+                <div class="check_box">
+                    <input type="checkbox" name="hobbies" ng-model="hobbies" /> Read books
+                    <input type="checkbox" name="hobbies" ng-model="hobbies" /> Tourism
+                    <input type="checkbox" name="hobbies" ng-model="hobbies" /> Cuisine
+                    <input type="checkbox" name="hobbies" ng-model="hobbies" /> Music
+                    <input type="checkbox" name="hobbies" ng-model="hobbies" /> Other
+                </div>
+                <div class="error" ng-if="!hobbies">You haven't selected Hobbies</div>
+            </div>
+            <div class="row text">
+                <div class="name">Nationality</div>
+                <select name="nationality" ng-model="nationality">
+                    <option value="Vietnamese" name="">Vietnamese</option>
+                    <option value="British">British</option>
+                    <option value="Korean">Koreapanese</option>
+                    <option value="Canadian">Cann</option>
+                    <option value="Chinese">Chinese</option>
+                    <option value="Japanese ">Jaadian</option>
+                    <option value="American">American</option>
+                    <option value="Argentinian ">Argentinian</option>
+                </select>
+                <div class="error" ng-if="!nationality">
+                    You haven't selected Nationality
+                </div>
+            </div>
+            <div class="row">
+                <div class="name">Notes</div>
+                <textarea name="notes" ng-model="notes" minlength="10" maxlength="255" required></textarea>
+                <div class="error" ng-if("frm.notes.$invalid")>You haven't type Notes</div>
+            </div>
+            <div class="row">
+                <button type="button">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", xuly);
+        function xuly($scope) { }
+    </script>
+    <script src="main.js"></script>
+</body>
+
+</html>
